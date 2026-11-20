@@ -203,7 +203,7 @@ public class DockerComputerJNLPLauncher extends DockerComputerLauncher {
                                 "`$JENKINS_URL='" + rootUrl + WNL +
                                 "`$JENKINS_USER='" + getUser() + WNL +
                                 "`$JENKINS_HOME='" + dockerSlaveTemplate.getRemoteFs() + WNL +
-                                "`$COMPUTER_URL='" + dockerComputer.getUrl() + WNL +
+                                "`$COMPUTER_NAME='" + dockerComputer.getName() + WNL +
                                 "`$COMPUTER_SECRET='" + dockerComputer.getJnlpMac() + WNL +
                                 "`$JAVA_OPTS='" + getJvmOpts() + WNL +
                                 "`$SLAVE_OPTS='" + getSlaveOpts() + WNL +
@@ -225,7 +225,7 @@ public class DockerComputerJNLPLauncher extends DockerComputerLauncher {
                                 "JENKINS_URL=\"" + rootUrl + NL +
                                 "JENKINS_USER=\"" + getUser() + NL +
                                 "JENKINS_HOME=\"" + dockerSlaveTemplate.getRemoteFs() + NL +
-                                "COMPUTER_URL=\"" + dockerComputer.getUrl() + NL +
+                                "COMPUTER_NAME=\"" + dockerComputer.getName() + NL +
                                 "COMPUTER_SECRET=\"" + dockerComputer.getJnlpMac() + NL +
                                 "JAVA_OPTS=\"" + getJvmOpts() + NL +
                                 "SLAVE_OPTS=\"" + getSlaveOpts() + NL +

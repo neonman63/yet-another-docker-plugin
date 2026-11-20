@@ -252,7 +252,7 @@ public class DockerComputerSingleJNLPLauncher extends JNLPLauncher {
                         "JENKINS_URL=\"" + rootUrl + NL +
                         "JENKINS_USER=\"" + getUser() + NL +
                         "JENKINS_HOME=\"" + node.getRemoteFS() + NL +
-                        "COMPUTER_URL=\"" + computer.getUrl() + NL +
+                        "COMPUTER_NAME=\"" + computer.getName() + NL +
                         "COMPUTER_SECRET=\"" + computer.getJnlpMac() + NL +
                         "JAVA_OPTS=\"" + getJvmOpts() + NL +
                         "SLAVE_OPTS=\"" + getSlaveOpts() + NL +
