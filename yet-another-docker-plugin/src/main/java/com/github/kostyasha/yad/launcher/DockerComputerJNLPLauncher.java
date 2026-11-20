@@ -122,12 +122,12 @@ public class DockerComputerJNLPLauncher extends DockerComputerLauncher {
     }
 
     @DataBoundSetter
-    public void setNoReconnect(boolean noReconnect) {
-        this.reconnect = !noReconnect;
+    public void setReconnect(boolean reconnect) {
+        this.reconnect = reconnect;
     }
 
-    public boolean isNoReconnect() {
-        return !reconnect;
+    public boolean isReconnect() {
+        return reconnect;
     }
 
     @DataBoundSetter
@@ -208,7 +208,7 @@ public class DockerComputerJNLPLauncher extends DockerComputerLauncher {
                                 "`$JAVA_OPTS='" + getJvmOpts() + WNL +
                                 "`$SLAVE_OPTS='" + getSlaveOpts() + WNL +
                                 "`$NO_CERTIFICATE_CHECK='" + isNoCertificateCheck() + WNL +
-                                "`$NO_RECONNECT_SLAVE='" + isNoReconnect() + WNL +
+                                "`$RECONNECT_SLAVE='" + isReconnect() + WNL +
                                 "\"@ | Out-File -FilePath c:\\config.ps1";
 
                 response = client.execCreateCmd(containerId)
@@ -230,7 +230,7 @@ public class DockerComputerJNLPLauncher extends DockerComputerLauncher {
                                 "JAVA_OPTS=\"" + getJvmOpts() + NL +
                                 "SLAVE_OPTS=\"" + getSlaveOpts() + NL +
                                 "NO_CERTIFICATE_CHECK=\"" + isNoCertificateCheck() + NL +
-                                "NO_RECONNECT_SLAVE=\"" + isNoReconnect() + NL +
+                                "RECONNECT_SLAVE=\"" + isReconnect() + NL +
                                 "EOF" + "\n";
 
                 response = client.execCreateCmd(containerId)
@@ -335,7 +335,7 @@ public class DockerComputerJNLPLauncher extends DockerComputerLauncher {
         cloneJNLPlauncher.setSlaveOpts(getSlaveOpts());
         cloneJNLPlauncher.setJenkinsUrl(getJenkinsUrl());
         cloneJNLPlauncher.setNoCertificateCheck(isNoCertificateCheck());
-        cloneJNLPlauncher.setNoReconnect(isNoReconnect());
+        cloneJNLPlauncher.setReconnect(isReconnect());
 
         return cloneJNLPlauncher;
     }
