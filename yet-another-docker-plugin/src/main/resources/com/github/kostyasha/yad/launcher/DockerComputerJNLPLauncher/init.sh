@@ -12,7 +12,7 @@ echo "Found config file"
 . "$CONFIG"
 # require:
 # $JENKINS_URL
-# $COMPUTER_URL
+# $COMPUTER_NAME
 # $COMPUTER_SECRET
 
 if [ -z "$JENKINS_URL" ]; then
@@ -20,8 +20,8 @@ if [ -z "$JENKINS_URL" ]; then
     exit 1
 fi
 
-if [ -z "$COMPUTER_URL" ]; then
-    echo "COMPUTER_URL is not defined! Exiting."
+if [ -z "$COMPUTER_NAME" ]; then
+    echo "COMPUTER_NAME is not defined! Exiting."
     exit 1
 fi
 
@@ -100,7 +100,7 @@ if [ -n "$SLAVE_OPTS" ] ; then
    RUN_CMD="$RUN_CMD $SLAVE_OPTS"
 fi
 
-RUN_CMD="$RUN_CMD -jnlpUrl ${JENKINS_URL}/${COMPUTER_URL}/slave-agent.jnlp"
+RUN_CMD="$RUN_CMD -url ${JENKINS_URL} -name ${COMPUTER_NAME}"
 if [ -n "$COMPUTER_SECRET" ]; then
  RUN_CMD="$RUN_CMD -secret $COMPUTER_SECRET"
 fi

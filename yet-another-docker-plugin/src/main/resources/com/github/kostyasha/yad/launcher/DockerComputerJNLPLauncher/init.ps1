@@ -43,8 +43,8 @@ if (!$JENKINS_URL) {
    exit 1
 }
 
-if (!$COMPUTER_URL) {
-   Write-Output "COMPUTER_URL is not defined! Exiting."
+if (!$COMPUTER_NAME) {
+   Write-Output "COMPUTER_NAME is not defined! Exiting."
    exit 1
 }
 
@@ -59,7 +59,7 @@ Write-Output "###################################"
 Write-Output "JENKINS_URL = $JENKINS_URL"
 Write-Output "JENKINS_USER = $JENKINS_USER"
 Write-Output "JENKINS_HOME = $JENKINS_HOME"
-Write-Output "COMPUTER_URL = $COMPUTER_URL"
+Write-Output "COMPUTER_NAME = $COMPUTER_NAME"
 Write-Output "COMPUTER_SECRET = $COMPUTER_SECRET"
 Write-Output "NO_CERTIFICATE_CHECK = $NO_CERTIFICATE_CHECK"
 Write-Output "JAVA_OPTS = $JAVA_OPTS"
@@ -86,7 +86,7 @@ if ($SLAVE_OPTS) {
    $RUN_CMD="$RUN_CMD $SLAVE_OPTS"
 }
 
-$RUN_CMD="$RUN_CMD -jnlpUrl $JENKINS_URL/$COMPUTER_URL/slave-agent.jnlp"
+$RUN_CMD="$RUN_CMD -url $JENKINS_URL -name $COMPUTER_NAME"
 
 if ($COMPUTER_SECRET) {
    $RUN_CMD="$RUN_CMD -secret $COMPUTER_SECRET"
